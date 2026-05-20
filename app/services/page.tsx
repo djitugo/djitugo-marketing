@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import { Approach } from "@/components/Approach";
 import { CTA } from "@/components/CTA";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { Placeholder } from "@/components/Placeholder";
 import { SERVICES } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -41,13 +41,9 @@ export default function ServicesPage() {
                   <div className="grid grid-cols-12 items-center gap-6 md:gap-8">
                     <div className="col-span-12 md:col-span-5">
                       <div className="relative aspect-[5/4] w-full overflow-hidden">
-                        <Image
-                          src={s.image}
-                          alt={s.alt}
-                          fill
-                          sizes="(min-width: 768px) 40vw, 100vw"
-                          className="object-cover grayscale contrast-[1.05] transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]"
-                        />
+                        <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.04]">
+                          <Placeholder kind={s.slug} label={s.alt} />
+                        </div>
                       </div>
                     </div>
                     <div className="col-span-12 md:col-span-6 md:col-start-7">

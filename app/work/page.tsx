@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import { CTA } from "@/components/CTA";
 import { Testimonials } from "@/components/Testimonials";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { Placeholder } from "@/components/Placeholder";
 import { PORTFOLIO } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -42,13 +42,9 @@ export default function WorkPage() {
                   }`}
                 >
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      sizes="(min-width: 768px) 66vw, 100vw"
-                      className="object-cover grayscale contrast-[1.05] transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]"
-                    />
+                    <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]">
+                      <Placeholder kind={item.kind} label={item.alt} />
+                    </div>
                   </div>
                 </div>
                 <div

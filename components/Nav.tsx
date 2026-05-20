@@ -34,14 +34,16 @@ export function Nav() {
     const obs = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) setInverted(true);
-          else if (e.boundingClientRect.top > 0) setInverted(false);
+          setInverted(e.isIntersecting);
         }
       },
       { rootMargin: "-50% 0px -50% 0px" }
     );
     obs.observe(target);
-    return () => obs.disconnect();
+    return () => {
+      obs.disconnect();
+      setInverted(false);
+    };
   }, [pathname]);
 
   return (

@@ -36,7 +36,7 @@ export default function ContactPage() {
                     <div className="font-mono text-mono-label uppercase opacity-60">
                       WhatsApp
                     </div>
-                    <div className="mt-2 text-display-l">
+                    <div className="mt-2 text-heading-1 text-balance">
                       {SITE.phone}
                     </div>
                   </div>
@@ -55,7 +55,7 @@ export default function ContactPage() {
                     <div className="font-mono text-mono-label uppercase opacity-60">
                       Email
                     </div>
-                    <div className="mt-2 text-display-l">{SITE.email}</div>
+                    <div className="mt-2 text-heading-1 text-balance">{SITE.email}</div>
                   </div>
                   <span
                     aria-hidden
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     <div className="font-mono text-mono-label uppercase opacity-60">
                       Call
                     </div>
-                    <div className="mt-2 text-display-l">{SITE.phone}</div>
+                    <div className="mt-2 text-heading-1 text-balance">{SITE.phone}</div>
                   </div>
                   <span
                     aria-hidden

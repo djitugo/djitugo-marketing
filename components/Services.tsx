@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Placeholder } from "@/components/Placeholder";
 import { SERVICES } from "@/lib/data";
 
 export function Services() {
@@ -80,15 +80,9 @@ export function Services() {
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden md:aspect-[5/6]">
                     <div data-img className="absolute inset-0 will-change-transform">
-                      <Image
-                        src={service.image}
-                        alt={service.alt}
-                        fill
-                        sizes="(min-width: 768px) 50vw, 100vw"
-                        className="object-cover grayscale contrast-[1.08]"
-                      />
+                      <Placeholder kind={service.slug} label={service.alt} />
                     </div>
-                    <div className="absolute left-4 top-4 font-mono text-mono-label uppercase text-paper/80">
+                    <div className="absolute left-4 top-4 z-10 font-mono text-mono-label uppercase text-paper/80">
                       <span className="rounded-sm bg-ink-0/60 px-2 py-1 backdrop-blur-sm">
                         {service.number}
                       </span>

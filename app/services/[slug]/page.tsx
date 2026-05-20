@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
@@ -8,6 +7,7 @@ import { Approach } from "@/components/Approach";
 import { CTA } from "@/components/CTA";
 import { SectionHeader } from "@/components/SectionHeader";
 import { FadeIn } from "@/components/motion/FadeIn";
+import { Placeholder } from "@/components/Placeholder";
 import { SERVICES, PORTFOLIO, type Service } from "@/lib/data";
 
 type Params = { slug: string };
@@ -74,14 +74,7 @@ export default async function ServicePage({
       <section className="relative w-full">
         <div className="mx-auto max-w-site px-6 md:px-10">
           <div className="relative aspect-[16/9] w-full overflow-hidden">
-            <Image
-              src={service.detailImage}
-              alt={service.detailAlt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover grayscale contrast-[1.06]"
-            />
+            <Placeholder kind={service.slug} label={service.detailAlt} />
           </div>
         </div>
       </section>
@@ -135,13 +128,9 @@ export default async function ServicePage({
           >
             <div className="col-span-12 md:col-span-7">
               <div className="relative aspect-[16/10] w-full overflow-hidden">
-                <Image
-                  src={sample.image}
-                  alt={sample.alt}
-                  fill
-                  sizes="(min-width: 768px) 58vw, 100vw"
-                  className="object-cover grayscale contrast-[1.05] transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]"
-                />
+                <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]">
+                  <Placeholder kind={sample.kind} label={sample.alt} />
+                </div>
               </div>
             </div>
             <div className="col-span-12 md:col-span-5">

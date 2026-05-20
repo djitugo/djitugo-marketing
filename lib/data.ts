@@ -222,8 +222,8 @@ export type PortfolioItem = {
   slug: string;
   client: string;
   industry: string;
+  kind: string;
   disciplines: string[];
-  image: string;
   alt: string;
   summary: string;
 };
@@ -233,11 +233,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     slug: "the-mesare-resort",
     client: "The Mesare Resort",
     industry: "Hospitality",
+    kind: "hospitality",
     disciplines: ["Web Development", "Social Media", "SEO"],
-    image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1800&q=80",
     alt:
-      "Cypress trees above a limestone hotel facade at dusk, soft warm light spilling from the windows.",
+      "A schematic of a boutique resort facade with palm motifs, marking the case study.",
     summary:
       "A full site rebuild and a content engine that took direct bookings up by a third in two quarters."
   },
@@ -245,11 +244,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     slug: "jobstreet-express",
     client: "JobStreet Express",
     industry: "Recruitment Tech",
+    kind: "recruitment",
     disciplines: ["Social Media", "Performance Ads", "KOL Management"],
-    image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80",
     alt:
-      "A focused job seeker scrolling a laptop in a daylit cafe, branded coffee cup beside.",
+      "A briefcase and two figures denoting a recruitment platform engagement.",
     summary:
       "An always-on social and KOL strategy for one of Indonesia's largest job platforms."
   },
@@ -257,11 +255,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     slug: "bali-family-dental",
     client: "Bali Family Dental Care",
     industry: "Healthcare",
+    kind: "healthcare",
     disciplines: ["Website Development", "Branding"],
-    image:
-      "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1800&q=80",
     alt:
-      "A calm, minimal dental reception, single chair in soft light, no patient in frame.",
+      "A medical cross on a quiet grid, marking the dental clinic project.",
     summary:
       "A calm, premium identity and booking site that turned walk-in traffic into a measurable funnel."
   },
@@ -269,11 +266,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     slug: "love-scooter-bali",
     client: "Love Scooter Bali",
     industry: "Mobility",
+    kind: "mobility",
     disciplines: ["Social Media", "Performance Ads"],
-    image:
-      "https://images.unsplash.com/photo-1602133187081-4874fdbd555c?auto=format&fit=crop&w=1800&q=80",
     alt:
-      "A scooter parked at dawn along a rice terrace road, helmet on the seat.",
+      "A scooter outline above a dashed road, denoting the mobility rental brand.",
     summary:
       "A scooter rental brand reshaped around the dawn-to-dusk Bali rider, then scaled with paid social."
   },
@@ -281,11 +277,10 @@ export const PORTFOLIO: PortfolioItem[] = [
     slug: "sunhwa-beauty",
     client: "Sunhwa Beauty",
     industry: "Beauty",
+    kind: "beauty",
     disciplines: ["Web Development", "Branding"],
-    image:
-      "https://images.unsplash.com/photo-1571781926291-c477ebfd07cf?auto=format&fit=crop&w=1800&q=80",
     alt:
-      "A skincare bottle on a textured stone slab, single shadow line crossing the frame.",
+      "A serum bottle silhouette denoting the beauty brand engagement.",
     summary:
       "A premium beauty wordmark, packaging system, and storefront launched ahead of a regional rollout."
   }

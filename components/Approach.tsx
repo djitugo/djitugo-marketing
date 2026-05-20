@@ -58,16 +58,18 @@ export function Approach() {
                   delay={i * 0.08}
                   className="group border-t border-line py-8 first:border-t-0 first:pt-0 md:py-10"
                 >
-                  <div className="grid grid-cols-12 items-baseline gap-3 md:gap-5">
-                    <div className="col-span-2 font-mono text-mono-label uppercase opacity-60 md:col-span-2">
+                  <div className="grid grid-cols-12 items-start gap-4">
+                    <div className="col-span-2 mt-2 font-mono text-mono-label uppercase opacity-60">
                       {s.n}
                     </div>
-                    <h3 className="col-span-10 text-heading-1 text-balance transition group-hover:translate-x-1 md:col-span-3">
-                      {s.title}
-                    </h3>
-                    <p className="col-span-12 max-w-md text-body text-ink-5 md:col-span-7">
-                      {s.body}
-                    </p>
+                    <div className="col-span-10">
+                      <h3 className="text-heading-1 text-balance transition-transform duration-700 ease-out-quint group-hover:translate-x-1">
+                        {s.title}
+                      </h3>
+                      <p className="mt-5 max-w-xl text-body text-ink-5">
+                        {s.body}
+                      </p>
+                    </div>
                   </div>
                 </FadeIn>
               ))}

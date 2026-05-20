@@ -1,46 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
-import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
+import { useGsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Placeholder } from "@/components/Placeholder";
 import { PORTFOLIO } from "@/lib/data";
 
 export function Portfolio() {
   const root = useRef<HTMLElement>(null);
 
   useGsap(() => {
-    if (!root.current) return;
-
-    gsap.fromTo(
-      document.body,
-      { backgroundColor: "var(--ink-0)" },
-      {
-        backgroundColor: "var(--paper)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top 60%",
-          end: "top 20%",
-          scrub: 0.6,
-          onEnter: () => root.current?.classList.add("inverted-active"),
-          onLeaveBack: () => root.current?.classList.remove("inverted-active")
-        }
-      }
-    );
-
-    gsap.to(document.body, {
-      backgroundColor: "var(--ink-0)",
-      ease: "none",
-      scrollTrigger: {
-        trigger: root.current,
-        start: "bottom 80%",
-        end: "bottom 30%",
-        scrub: 0.6
-      }
-    });
-
     return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
@@ -72,13 +42,9 @@ export function Portfolio() {
                 }`}
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    sizes="(min-width: 768px) 66vw, 100vw"
-                    className="object-cover grayscale contrast-[1.05] transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]"
-                  />
+                  <div className="absolute inset-0 transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]">
+                    <Placeholder kind={item.kind} label={item.alt} />
+                  </div>
                 </div>
               </div>
               <div
