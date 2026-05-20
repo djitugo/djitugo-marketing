@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-0: oklch(0.14 0.005 60);
+  --ink-1: oklch(0.20 0.005 60);
+  --ink-2: oklch(0.28 0.004 60);
+  --ink-3: oklch(0.42 0.004 65);
+  --ink-4: oklch(0.62 0.003 65);
+  --ink-5: oklch(0.82 0.003 70);
+  --paper: oklch(0.97 0.003 80);
+  --paper-2: oklch(0.99 0.002 80);
+  --focus: oklch(0.85 0.002 70);
+
+  --unit: 4px;
+  color-scheme: dark;
+}
+
+@supports not (color: oklch(0 0 0)) {
+  :root {
+    --ink-0: #1a1716;
+    --ink-1: #25201f;
+    --ink-2: #3a3432;
+    --ink-3: #5c5552;
+    --ink-4: #8a8380;
+    --ink-5: #c5beba;
+    --paper: #f5f1ec;
+    --paper-2: #fafaf6;
+    --focus: #d4cfca;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--ink-0);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-bricolage), system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02", "kern";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--paper);
+  color: var(--ink-0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  z-index: 100;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.95  0 0 0 0 0.94  0 0 0 0 0.92  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.section-inverted {
+  background: var(--paper);
+  color: var(--ink-0);
+}
+
+.section-inverted ::selection {
+  background: var(--ink-0);
+  color: var(--paper);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.line-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.line-mask > span {
+  display: inline-block;
+  will-change: transform;
+}
