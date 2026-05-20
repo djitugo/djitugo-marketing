@@ -3,6 +3,7 @@ export type Lang = "en" | "id";
 export const STRINGS = {
   en: {
     nav: {
+      home: "Home",
       about: "About",
       services: "Services",
       work: "Work",
@@ -201,6 +202,7 @@ export const STRINGS = {
   },
   id: {
     nav: {
+      home: "Beranda",
       about: "Tentang",
       services: "Layanan",
       work: "Karya",

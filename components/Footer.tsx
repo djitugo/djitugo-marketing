@@ -10,6 +10,7 @@ export function Footer() {
   const t = useT();
   const navLabel = (k: string) =>
     ({
+      home: t.nav.home,
       about: t.nav.about,
       services: t.nav.services,
       work: t.nav.work,
