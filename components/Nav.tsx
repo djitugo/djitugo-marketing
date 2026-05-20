@@ -107,30 +107,39 @@ export function Nav() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "inline-flex items-center gap-1 font-mono text-mono-label uppercase transition",
-                    active ? "opacity-100" : "opacity-70 hover:opacity-100"
+                    "group/link inline-flex items-center gap-1.5 font-mono text-mono-label uppercase transition",
+                    active ? "opacity-100" : "opacity-80 hover:opacity-100"
                   )}
                   aria-haspopup={isServices ? "true" : undefined}
                   aria-expanded={isServices ? servicesOpen : undefined}
                 >
-                  {navLabel(item.key)}
+                  <span className="relative">
+                    {navLabel(item.key)}
+                    {isServices ? (
+                      <span
+                        aria-hidden
+                        className="absolute -bottom-1 left-0 right-0 h-px bg-current opacity-40"
+                      />
+                    ) : null}
+                  </span>
                   {isServices ? (
                     <svg
-                      width="8"
-                      height="8"
-                      viewBox="0 0 8 8"
+                      width="11"
+                      height="11"
+                      viewBox="0 0 10 10"
                       fill="none"
                       aria-hidden
                       className={cn(
-                        "transition-transform",
+                        "transition-transform duration-300 ease-out-quint opacity-90",
                         servicesOpen && "rotate-180"
                       )}
                     >
                       <path
-                        d="M1 2.5L4 5.5L7 2.5"
+                        d="M1.5 3.5L5 7L8.5 3.5"
                         stroke="currentColor"
-                        strokeWidth="1.2"
+                        strokeWidth="1.4"
                         strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   ) : null}
@@ -139,33 +148,33 @@ export function Nav() {
                 {isServices ? (
                   <div
                     className={cn(
-                      "absolute right-0 top-full mt-3 w-[20rem] origin-top-right transition-all duration-300 ease-out-quint",
+                      "absolute right-0 top-full mt-4 w-[22rem] origin-top-right transition-all duration-300 ease-out-quint",
                       servicesOpen
-                        ? "pointer-events-auto translate-y-0 opacity-100"
-                        : "pointer-events-none -translate-y-1 opacity-0"
+                        ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
+                        : "pointer-events-none -translate-y-2 scale-[0.98] opacity-0"
                     )}
                   >
                     <div
-                      className={cn(
-                        "rounded-md border bg-ink-1/95 p-1.5 backdrop-blur-md shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)]",
-                        inverted && !menuOpen
-                          ? "border-line-inv"
-                          : "border-line"
-                      )}
-                    >
+                      className="absolute -top-2 right-7 size-3 rotate-45 border-l border-t border-line bg-ink-0"
+                      aria-hidden
+                    />
+                    <div className="relative rounded-lg border border-line bg-ink-0 p-2 shadow-[0_28px_80px_-20px_rgba(0,0,0,0.75)] ring-1 ring-paper/[0.03]">
                       <Link
                         href="/services"
-                        className="flex items-center justify-between rounded px-4 py-3 text-paper transition hover:bg-ink-2/60"
+                        className="group/item flex items-center justify-between rounded-md px-4 py-3 text-paper transition hover:bg-ink-1"
                       >
                         <div>
                           <div className="font-mono text-mono-label uppercase opacity-60">
-                            00
+                            00 / All
                           </div>
                           <div className="mt-1 text-body">
                             {t.nav.services}
                           </div>
                         </div>
-                        <span aria-hidden className="opacity-50">
+                        <span
+                          aria-hidden
+                          className="opacity-50 transition group-hover/item:translate-x-0.5 group-hover/item:opacity-100"
+                        >
                           ↗
                         </span>
                       </Link>
@@ -174,7 +183,7 @@ export function Nav() {
                         <Link
                           key={s.slug}
                           href={`/services/${s.slug}`}
-                          className="flex items-center justify-between rounded px-4 py-3 text-paper transition hover:bg-ink-2/60"
+                          className="group/item flex items-center justify-between rounded-md px-4 py-3 text-paper transition hover:bg-ink-1"
                         >
                           <div>
                             <div className="font-mono text-mono-label uppercase opacity-60">
@@ -184,7 +193,7 @@ export function Nav() {
                           </div>
                           <span
                             aria-hidden
-                            className="opacity-40 transition group-hover:translate-x-0.5"
+                            className="opacity-40 transition group-hover/item:translate-x-0.5 group-hover/item:opacity-100"
                           >
                             ↗
                           </span>
