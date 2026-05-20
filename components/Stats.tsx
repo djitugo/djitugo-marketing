@@ -33,7 +33,7 @@ export function Stats() {
   }, []);
 
   return (
-    <section className="relative w-full border-y border-paper/10 py-24 md:py-32">
+    <section className="relative w-full border-y border-line py-24 md:py-32">
       <div className="mx-auto max-w-site px-6 md:px-10">
         <SectionHeader number="01" label="Numbers, not vibes" />
 

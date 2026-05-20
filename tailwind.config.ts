@@ -21,6 +21,9 @@ const config: Config = {
           DEFAULT: "var(--paper)",
           2: "var(--paper-2)"
         },
+        line: "var(--line)",
+        "line-soft": "var(--line-soft)",
+        "line-inv": "var(--line-inv)",
         focus: "var(--focus)"
       },
       fontFamily: {

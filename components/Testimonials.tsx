@@ -8,7 +8,7 @@ export function Testimonials() {
   return (
     <section id="studio" className="relative w-full py-24 md:py-32">
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="04" label="What our partners say" />
+        <SectionHeader number="06" label="What our partners say" />
 
         <div className="mt-20 grid grid-cols-12 gap-4 md:gap-6">
           {TESTIMONIALS.map((t, i) => (
@@ -32,7 +32,7 @@ export function Testimonials() {
                   &rdquo;
                 </span>
               </blockquote>
-              <footer className="mt-8 border-t border-paper/15 pt-4">
+              <footer className="mt-8 border-t border-line pt-4">
                 <div className="font-mono text-mono-label uppercase">
                   {t.author}
                 </div>

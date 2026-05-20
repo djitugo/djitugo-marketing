@@ -69,7 +69,7 @@ export function Services() {
             <article
               key={service.number}
               data-row
-              className="group relative w-full border-t border-paper/10 last:border-b"
+              className="group relative w-full border-t border-line last:border-b"
             >
               <div className="mx-auto grid max-w-site grid-cols-12 gap-4 px-6 py-16 md:gap-6 md:px-10 md:py-24">
                 <div

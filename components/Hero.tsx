@@ -117,7 +117,7 @@ export function Hero() {
       </div>
 
       <div className="mx-auto mt-24 max-w-site px-6 md:mt-32 md:px-10">
-        <div className="flex items-end justify-between border-t border-paper/10 pt-8">
+        <div className="flex items-end justify-between border-t border-line pt-8">
           <div className="font-mono text-mono-label uppercase opacity-60">
             Where creativity meets technology
           </div>

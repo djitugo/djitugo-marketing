@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
+import { Loader } from "@/components/Loader";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -45,6 +47,8 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <Loader />
+        <ScrollProgress />
         <Nav />
         <main id="main">{children}</main>
         <div className="grain" aria-hidden />

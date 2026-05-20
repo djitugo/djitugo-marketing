@@ -3,14 +3,14 @@ import { NAV, SITE } from "@/lib/data";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative w-full border-t border-paper/10 pt-20 pb-10 md:pt-28">
+    <footer className="relative w-full border-t border-line pt-20 pb-10 md:pt-28">
       <div className="mx-auto max-w-site px-6 md:px-10">
         <div className="text-display-l leading-[0.95] tracking-[-0.04em]">
           {SITE.name.toLowerCase()}
           <span className="text-focus">.</span>
         </div>
 
-        <div className="mt-16 grid grid-cols-12 gap-6 border-t border-paper/10 pt-10">
+        <div className="mt-16 grid grid-cols-12 gap-6 border-t border-line pt-10">
           <div className="col-span-12 md:col-span-4">
             <div className="font-mono text-mono-label uppercase opacity-60">
               Studio
@@ -103,7 +103,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-paper/10 pt-6 font-mono text-mono-label uppercase opacity-60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 font-mono text-mono-label uppercase opacity-60 md:flex-row md:items-center md:justify-between">
           <div>
             &copy; {year} PT Djitu Solusi Digital. All rights reserved.
           </div>

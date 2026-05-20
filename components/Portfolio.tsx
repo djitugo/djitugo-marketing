@@ -50,7 +50,7 @@ export function Portfolio() {
       className="section-inverted relative w-full py-24 transition-colors md:py-32"
     >
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="03" label="Selected work" />
+        <SectionHeader number="04" label="Selected work" />
         <h2 className="mt-6 max-w-3xl text-display-l text-balance">
           Brands that grew on our watch.
         </h2>
@@ -62,7 +62,7 @@ export function Portfolio() {
           return (
             <article
               key={item.client}
-              className="grid grid-cols-12 items-end gap-4 md:gap-6"
+              className="group grid grid-cols-12 items-end gap-4 md:gap-6"
             >
               <div
                 className={`col-span-12 md:col-span-8 ${
@@ -75,7 +75,7 @@ export function Portfolio() {
                     alt={item.alt}
                     fill
                     sizes="(min-width: 768px) 66vw, 100vw"
-                    className="object-cover grayscale contrast-[1.05]"
+                    className="object-cover grayscale contrast-[1.05] transition-transform duration-[1200ms] ease-out-quint group-hover:scale-[1.03]"
                   />
                 </div>
               </div>
@@ -87,7 +87,7 @@ export function Portfolio() {
                 <div className="font-mono text-mono-label uppercase opacity-60">
                   {String(i + 1).padStart(2, "0")} / Case study
                 </div>
-                <h3 className="mt-3 text-heading-1 text-balance">
+                <h3 className="mt-3 text-heading-1 text-balance transition-transform duration-700 ease-out-quint group-hover:-translate-x-1">
                   {item.client}
                 </h3>
                 <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-2 font-mono text-mono-label uppercase opacity-70">
@@ -106,7 +106,7 @@ export function Portfolio() {
         })}
       </div>
 
-      <div className="mx-auto mt-24 flex max-w-site items-center justify-between border-t border-ink-0/15 px-6 pt-8 md:px-10">
+      <div className="mx-auto mt-24 flex max-w-site items-center justify-between border-t border-line-inv px-6 pt-8 md:px-10">
         <div className="font-mono text-mono-label uppercase opacity-60">
           More work on request
         </div>

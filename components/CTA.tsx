@@ -79,7 +79,7 @@ export function CTA() {
     >
       <div className="mx-auto max-w-site px-6 md:px-10">
         <div className="font-mono text-mono-label uppercase opacity-60">
-          05 / Let&apos;s work together
+          07 / Let&apos;s work together
         </div>
 
         <h2 className="mt-8 text-display-xl text-balance">
@@ -137,13 +137,13 @@ export function CTA() {
           </div>
 
           <aside className="col-span-12 md:col-span-4 md:col-start-9">
-            <div className="border-t border-paper/15 pt-6">
+            <div className="border-t border-line pt-6">
               <div className="font-mono text-mono-label uppercase opacity-60">
                 Studio
               </div>
               <p className="mt-3 text-body text-paper">{SITE.address}</p>
             </div>
-            <div className="mt-8 border-t border-paper/15 pt-6">
+            <div className="mt-8 border-t border-line pt-6">
               <div className="font-mono text-mono-label uppercase opacity-60">
                 Direct
               </div>

@@ -40,8 +40,8 @@ export function Nav() {
         "fixed inset-x-0 top-0 z-50 transition-[background,color,backdrop-filter] duration-500 ease-out-quint",
         scrolled
           ? inverted
-            ? "bg-paper/70 backdrop-blur-md text-ink-0 border-b border-ink-0/10"
-            : "bg-ink-0/70 backdrop-blur-md text-paper border-b border-paper/10"
+            ? "bg-paper/70 backdrop-blur-md text-ink-0 border-b border-line-inv"
+            : "bg-ink-0/70 backdrop-blur-md text-paper border-b border-line"
           : "bg-transparent",
         inverted ? "text-ink-0" : "text-paper"
       )}
