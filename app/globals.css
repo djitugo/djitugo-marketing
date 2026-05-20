@@ -131,9 +131,8 @@ video {
 }
 
 .line-mask {
-  display: inline-block;
+  display: block;
   overflow: hidden;
-  vertical-align: top;
 }
 
 .line-mask > span {
