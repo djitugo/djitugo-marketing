@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { NAV, SITE } from "@/lib/data";
+import { Logo } from "@/components/Logo";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -58,10 +59,11 @@ export function Nav() {
       <div className="mx-auto flex h-16 max-w-site items-center justify-between px-6 md:px-10">
         <Link
           href="/"
-          className="font-sans text-[1.35rem] font-semibold tracking-[-0.04em]"
+          aria-label={`${SITE.name} home`}
+          className="inline-flex items-center gap-2"
         >
-          {SITE.name.toLowerCase()}
-          <span className="text-focus">.</span>
+          <Logo className="h-7 w-7" />
+          <span className="sr-only">{SITE.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">

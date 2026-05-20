@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/data";
+import { Logo } from "@/components/Logo";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -8,10 +9,11 @@ export function Footer() {
       <div className="mx-auto max-w-site px-6 md:px-10">
         <Link
           href="/"
-          className="block text-display-l leading-[0.95] tracking-[-0.04em] transition hover:opacity-90"
+          aria-label={`${SITE.name} home`}
+          className="inline-block transition hover:opacity-90"
         >
-          {SITE.name.toLowerCase()}
-          <span className="text-focus">.</span>
+          <Logo className="h-24 w-24 md:h-32 md:w-32" />
+          <span className="sr-only">{SITE.name}</span>
         </Link>
 
         <div className="mt-16 grid grid-cols-12 gap-6 border-t border-line pt-10">

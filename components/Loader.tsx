@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { Logo } from "@/components/Logo";
 
 const PHRASES = [
   "Calibrating brand",
@@ -124,12 +125,10 @@ export function Loader() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center"
+              className="flex flex-col items-center"
             >
-              <div className="font-sans text-[2.5rem] font-medium tracking-[-0.04em] leading-none md:text-[3.25rem]">
-                djitugo<span className="text-focus">.</span>
-              </div>
-              <div className="mt-4 h-5 overflow-hidden">
+              <Logo className="size-16 md:size-20" />
+              <div className="mt-5 h-5 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={phraseIdx}
