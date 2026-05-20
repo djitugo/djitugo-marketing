@@ -3,16 +3,11 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Logo } from "@/components/Logo";
-
-const PHRASES = [
-  "Calibrating brand",
-  "Loading the studio",
-  "Sharpening type",
-  "Tuning the loops",
-  "Almost there"
-];
+import { useT } from "@/components/LangProvider";
 
 export function Loader() {
+  const t = useT();
+  const PHRASES = t.loader.phrases;
   const [hidden, setHidden] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -71,7 +66,7 @@ export function Loader() {
               animate={{ y: 0, opacity: 0.7 }}
               transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
-              Djitugo Studio / Bali
+              Djitugo / Bali, Indonesia
             </motion.span>
             <motion.span
               className="tabular-nums"
@@ -152,7 +147,7 @@ export function Loader() {
             <div className="flex w-max animate-marquee gap-12 whitespace-nowrap py-3 font-mono text-mono-label uppercase opacity-70 md:py-4">
               {Array.from({ length: 14 }).map((_, i) => (
                 <span key={i} className="flex items-center gap-12">
-                  Where creativity meets technology
+                  {t.hero.tagline}
                   <span className="opacity-40">·</span>
                   Bali, Indonesia
                   <span className="opacity-40">·</span>

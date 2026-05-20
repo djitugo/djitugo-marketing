@@ -6,12 +6,14 @@ import { useGsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Placeholder } from "@/components/Placeholder";
 import { PORTFOLIO } from "@/lib/data";
+import { useLang } from "@/components/LangProvider";
 
 export function Portfolio() {
   const root = useRef<HTMLElement>(null);
+  const { lang, t } = useLang();
 
   useGsap(() => {
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => ScrollTrigger.getAll().forEach((tr) => tr.kill());
   }, []);
 
   return (
@@ -21,15 +23,17 @@ export function Portfolio() {
       className="section-inverted relative w-full py-24 transition-colors md:py-32"
     >
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="04" label="Selected work" />
+        <SectionHeader number="04" label={t.portfolio.eyebrow} />
         <h2 className="mt-6 max-w-3xl text-display-l text-balance">
-          Brands that grew on our watch.
+          {t.portfolio.heading}
         </h2>
       </div>
 
       <div className="mx-auto mt-20 flex max-w-site flex-col gap-24 px-6 md:gap-32 md:px-10">
         {PORTFOLIO.map((item, i) => {
           const isEven = i % 2 === 0;
+          const disciplines =
+            lang === "id" ? item.disciplinesId : item.disciplines;
           return (
             <Link
               href={`/work#${item.slug}`}
@@ -53,13 +57,13 @@ export function Portfolio() {
                 }`}
               >
                 <div className="font-mono text-mono-label uppercase opacity-60">
-                  {String(i + 1).padStart(2, "0")} / Case study
+                  {String(i + 1).padStart(2, "0")} / {t.portfolio.caseStudy}
                 </div>
                 <h3 className="mt-3 text-heading-1 text-balance transition-transform duration-700 ease-out-quint group-hover:-translate-x-1">
                   {item.client}
                 </h3>
                 <ul className="mt-6 flex flex-wrap gap-x-3 gap-y-2 font-mono text-mono-label uppercase opacity-70">
-                  {item.disciplines.map((d) => (
+                  {disciplines.map((d) => (
                     <li
                       key={d}
                       className="rounded-full border border-current px-3 py-1"
@@ -76,13 +80,13 @@ export function Portfolio() {
 
       <div className="mx-auto mt-24 flex max-w-site items-center justify-between border-t border-line-inv px-6 pt-8 md:px-10">
         <div className="font-mono text-mono-label uppercase opacity-60">
-          More work on request
+          {t.portfolio.more}
         </div>
         <Link
           href="/work"
           className="font-mono text-mono-label uppercase underline-offset-4 hover:underline"
         >
-          See all work ↗
+          {t.portfolio.seeAll} ↗
         </Link>
       </div>
     </section>

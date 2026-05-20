@@ -1,9 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { NAV, SITE } from "@/lib/data";
 import { Logo } from "@/components/Logo";
+import { useT } from "@/components/LangProvider";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const t = useT();
+  const navLabel = (k: string) =>
+    ({
+      about: t.nav.about,
+      services: t.nav.services,
+      work: t.nav.work,
+      contact: t.nav.contact
+    }[k] as string);
   return (
     <footer className="relative w-full border-t border-line pt-20 pb-10 md:pt-28">
       <div className="mx-auto max-w-site px-6 md:px-10">
@@ -12,26 +23,26 @@ export function Footer() {
           aria-label={`${SITE.name} home`}
           className="inline-block transition hover:opacity-90"
         >
-          <Logo className="h-24 w-24 md:h-32 md:w-32" />
+          <Logo className="h-24 w-24 md:h-28 md:w-28" />
           <span className="sr-only">{SITE.name}</span>
         </Link>
 
         <div className="mt-16 grid grid-cols-12 gap-6 border-t border-line pt-10">
           <div className="col-span-12 md:col-span-4">
             <div className="font-mono text-mono-label uppercase opacity-60">
-              Studio
+              {t.footer.studio}
             </div>
             <address className="mt-3 not-italic text-body text-ink-5">
               {SITE.address}
             </address>
             <p className="mt-3 font-mono text-mono-label uppercase opacity-60">
-              {SITE.hours}
+              {t.footer.hours}
             </p>
           </div>
 
           <div className="col-span-6 md:col-span-3">
             <div className="font-mono text-mono-label uppercase opacity-60">
-              Reach us
+              {t.footer.reachUs}
             </div>
             <ul className="mt-3 space-y-2 text-body">
               <li>
@@ -57,7 +68,7 @@ export function Footer() {
 
           <div className="col-span-6 md:col-span-2">
             <div className="font-mono text-mono-label uppercase opacity-60">
-              Pages
+              {t.footer.pages}
             </div>
             <ul className="mt-3 space-y-2 text-body">
               {NAV.map((n) => (
@@ -66,7 +77,7 @@ export function Footer() {
                     href={n.href}
                     className="text-paper underline-offset-4 hover:underline"
                   >
-                    {n.label}
+                    {navLabel(n.key)}
                   </Link>
                 </li>
               ))}
@@ -75,7 +86,7 @@ export function Footer() {
 
           <div className="col-span-12 md:col-span-3">
             <div className="font-mono text-mono-label uppercase opacity-60">
-              Follow
+              {t.footer.follow}
             </div>
             <ul className="mt-3 space-y-2 text-body">
               <li>
@@ -115,20 +126,14 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 font-mono text-mono-label uppercase opacity-60 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <span>&copy; {year} {SITE.legalName}</span>
-            <Link
-              href="/privacy"
-              className="underline-offset-4 hover:underline"
-            >
+            <Link href="/privacy" className="underline-offset-4 hover:underline">
               Privacy
             </Link>
-            <Link
-              href="/terms"
-              className="underline-offset-4 hover:underline"
-            >
+            <Link href="/terms" className="underline-offset-4 hover:underline">
               Terms
             </Link>
           </div>
-          <div>Made on Bukit Sari Utara, Bali</div>
+          <div>{t.footer.madeIn}</div>
         </div>
       </div>
     </footer>

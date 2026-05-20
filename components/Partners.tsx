@@ -2,14 +2,16 @@
 
 import { PARTNERS } from "@/lib/data";
 import { SectionHeader } from "@/components/SectionHeader";
+import { useT } from "@/components/LangProvider";
 
 export function Partners() {
   const doubled = [...PARTNERS, ...PARTNERS];
+  const t = useT();
 
   return (
     <section className="relative w-full overflow-hidden py-20 md:py-24">
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="00" label="Trusted by 700+ brands" />
+        <SectionHeader number="00" label={t.partners.eyebrow} />
       </div>
 
       <div className="relative mt-10 overflow-hidden">

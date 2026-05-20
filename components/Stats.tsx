@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
 import { STATS } from "@/lib/data";
+import { useT } from "@/components/LangProvider";
 
 export function Stats() {
   const root = useRef<HTMLDivElement>(null);
+  const t = useT();
 
   useGsap(() => {
     const nodes = root.current?.querySelectorAll<HTMLElement>("[data-count]");
@@ -35,7 +37,7 @@ export function Stats() {
   return (
     <section className="relative w-full border-y border-line py-24 md:py-32">
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="01" label="Numbers, not vibes" />
+        <SectionHeader number="01" label={t.stats.eyebrow} />
 
         <div
           ref={root}
@@ -57,7 +59,7 @@ export function Stats() {
                 ) : null}
               </div>
               <div className="font-mono text-mono-label uppercase text-ink-5">
-                {s.label}
+                {t.stats.labels[i]}
               </div>
             </div>
           ))}

@@ -3,10 +3,12 @@
 import { useRef } from "react";
 import { useGsap, gsap } from "@/components/motion/useGsap";
 import { SITE } from "@/lib/data";
+import { useT } from "@/components/LangProvider";
 
 export function CTA() {
   const root = useRef<HTMLElement>(null);
   const btnRef = useRef<HTMLAnchorElement>(null);
+  const t = useT();
 
   useGsap(() => {
     const underline = root.current?.querySelector<HTMLElement>("[data-underline]");
@@ -79,14 +81,14 @@ export function CTA() {
     >
       <div className="mx-auto max-w-site px-6 md:px-10">
         <div className="font-mono text-mono-label uppercase opacity-60">
-          07 / Let&apos;s work together
+          07 / {t.cta.eyebrow}
         </div>
 
         <h2 className="mt-8 text-display-xl text-balance">
-          <span className="inline-block">Ready to grow</span>
+          <span className="inline-block">{t.cta.l1}</span>
           <br />
           <span className="relative inline-block">
-            smarter?
+            {t.cta.l2}
             <span
               data-underline
               className="absolute -bottom-2 left-0 h-[6px] w-full origin-left bg-paper md:h-[10px]"
@@ -96,11 +98,7 @@ export function CTA() {
 
         <div className="mt-16 grid grid-cols-12 gap-4 md:mt-24 md:gap-6">
           <div className="col-span-12 md:col-span-7">
-            <p className="max-w-xl text-body-l text-ink-5">
-              Tell us what you want to grow. We will tell you what it takes,
-              who from the studio will run it, and how soon we can start. Most
-              calls last fifteen minutes.
-            </p>
+            <p className="max-w-xl text-body-l text-ink-5">{t.cta.body}</p>
             <div className="mt-12 flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
               <a
                 ref={btnRef}
@@ -109,7 +107,7 @@ export function CTA() {
                 rel="noreferrer noopener"
                 className="group inline-flex items-center gap-4 rounded-full bg-paper px-6 py-5 text-ink-0 transition will-change-transform hover:bg-ink-5 md:px-8 md:py-6"
               >
-                <span className="font-sans text-heading-2">Schedule a call</span>
+                <span className="font-sans text-heading-2">{t.cta.schedule}</span>
                 <span className="inline-flex size-12 items-center justify-center rounded-full bg-ink-0 text-paper transition group-hover:rotate-45">
                   <svg
                     width="14"
@@ -131,7 +129,7 @@ export function CTA() {
                 href={`mailto:${SITE.email}`}
                 className="font-mono text-mono-label uppercase opacity-70 underline-offset-4 hover:underline"
               >
-                or email {SITE.email}
+                {t.cta.orEmail} {SITE.email}
               </a>
             </div>
           </div>
@@ -139,13 +137,13 @@ export function CTA() {
           <aside className="col-span-12 md:col-span-4 md:col-start-9">
             <div className="border-t border-line pt-6">
               <div className="font-mono text-mono-label uppercase opacity-60">
-                Studio
+                {t.contact.studio}
               </div>
               <p className="mt-3 text-body text-paper">{SITE.address}</p>
             </div>
             <div className="mt-8 border-t border-line pt-6">
               <div className="font-mono text-mono-label uppercase opacity-60">
-                Direct
+                {t.footer.reachUs}
               </div>
               <p className="mt-3 text-body text-paper">{SITE.phone}</p>
               <p className="text-body text-paper">{SITE.email}</p>

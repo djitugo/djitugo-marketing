@@ -3,19 +3,21 @@
 import { FadeIn } from "@/components/motion/FadeIn";
 import { SectionHeader } from "@/components/SectionHeader";
 import { TESTIMONIALS } from "@/lib/data";
+import { useLang } from "@/components/LangProvider";
 
 export function Testimonials() {
+  const { lang, t } = useLang();
   return (
     <section id="studio" className="relative w-full py-24 md:py-32">
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="06" label="What our partners say" />
+        <SectionHeader number="06" label={t.testimonials.eyebrow} />
 
         <div className="mt-20 grid grid-cols-12 gap-4 md:gap-6">
-          {TESTIMONIALS.map((t, i) => (
+          {TESTIMONIALS.map((tst, i) => (
             <FadeIn
               as="article"
               delay={i * 0.1}
-              key={t.author + t.org}
+              key={tst.author + tst.org}
               className={`col-span-12 md:col-span-4 ${
                 i === 1 ? "md:translate-y-12" : ""
               }`}
@@ -27,16 +29,16 @@ export function Testimonials() {
                 <span aria-hidden className="mr-1 opacity-50">
                   &ldquo;
                 </span>
-                {t.quote}
+                {lang === "id" ? tst.quoteId : tst.quote}
                 <span aria-hidden className="ml-1 opacity-50">
                   &rdquo;
                 </span>
               </blockquote>
               <footer className="mt-8 border-t border-line pt-4">
                 <div className="font-mono text-mono-label uppercase">
-                  {t.author}
+                  {tst.author}
                 </div>
-                <div className="mt-1 text-caption text-ink-5">{t.org}</div>
+                <div className="mt-1 text-caption text-ink-5">{tst.org}</div>
               </footer>
             </FadeIn>
           ))}

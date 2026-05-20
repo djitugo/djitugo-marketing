@@ -6,9 +6,11 @@ import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Placeholder } from "@/components/Placeholder";
 import { SERVICES } from "@/lib/data";
+import { useLang } from "@/components/LangProvider";
 
 export function Services() {
   const root = useRef<HTMLElement>(null);
+  const { lang, t } = useLang();
 
   useGsap(() => {
     const rows = root.current?.querySelectorAll<HTMLElement>("[data-row]");
@@ -47,7 +49,7 @@ export function Services() {
         });
       }
     });
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    return () => ScrollTrigger.getAll().forEach((tr) => tr.kill());
   }, []);
 
   return (
@@ -57,15 +59,16 @@ export function Services() {
       className="relative w-full py-24 md:py-32"
     >
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <SectionHeader number="02" label="Services" />
+        <SectionHeader number="02" label={t.services.eyebrow} />
         <h2 className="mt-6 max-w-3xl text-display-l text-balance">
-          Six disciplines, one accountable team.
+          {t.services.heading}
         </h2>
       </div>
 
       <div className="mt-20 flex flex-col">
         {SERVICES.map((service, i) => {
           const isEven = i % 2 === 0;
+          const sx = service[lang];
           return (
             <article
               key={service.number}
@@ -99,16 +102,16 @@ export function Services() {
                     data-headline
                     className="text-heading-1 text-balance"
                   >
-                    {service.title}
+                    {sx.title}
                   </div>
                   <p className="mt-6 max-w-md text-body-l text-ink-5">
-                    {service.body}
+                    {sx.body}
                   </p>
                   <Link
                     href={`/services/${service.slug}`}
                     className="mt-10 inline-flex w-fit items-center gap-2 font-mono text-mono-label uppercase opacity-70 underline-offset-4 transition hover:opacity-100 hover:underline"
                   >
-                    Open the file
+                    {t.services.cta}
                     <span aria-hidden>↗</span>
                   </Link>
                 </div>

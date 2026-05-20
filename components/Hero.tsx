@@ -4,9 +4,11 @@ import { useRef } from "react";
 import { LineReveal } from "@/components/motion/LineReveal";
 import { useGsap, gsap } from "@/components/motion/useGsap";
 import { SITE } from "@/lib/data";
+import { useT } from "@/components/LangProvider";
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const t = useT();
 
   useGsap(() => {
     const ticker = root.current?.querySelectorAll<HTMLElement>("[data-ticker] span");
@@ -48,15 +50,18 @@ export function Hero() {
             className="font-mono text-mono-label uppercase opacity-70"
             data-ticker
           >
-            <span>Bali</span>
-            <span className="mx-3 opacity-40">/</span>
-            <span>Digital Marketing</span>
-            <span className="mx-3 opacity-40">/</span>
-            <span>est. 2020</span>
+            {t.hero.ticker.map((item, i) => (
+              <span key={i}>
+                <span>{item}</span>
+                {i < t.hero.ticker.length - 1 ? (
+                  <span className="mx-3 opacity-40">/</span>
+                ) : null}
+              </span>
+            ))}
           </div>
           <div className="hidden font-mono text-mono-label uppercase opacity-70 md:flex md:items-center md:gap-3">
             <span className="size-1.5 rounded-full bg-paper" data-cursor />
-            <span>Currently taking on Q3 partners</span>
+            <span>{t.hero.availability}</span>
           </div>
         </div>
 
@@ -67,16 +72,14 @@ export function Hero() {
             stagger={0.1}
             delay={0.1}
           >
-            {"Smarter marketing,"}
-            {"for ambitious brands."}
+            {t.hero.l1}
+            {t.hero.l2}
           </LineReveal>
         </div>
 
         <div className="col-span-12 mt-16 grid grid-cols-12 gap-4 md:mt-24">
           <p className="col-span-12 text-body-l text-ink-5 md:col-span-5 md:col-start-1">
-            We are a Bali-based studio building automation-led growth systems
-            across hospitality, retail, healthcare, and beyond. Strategy,
-            creative, and engineering, under one roof on Bukit Sari Utara.
+            {t.hero.body}
           </p>
           <div className="col-span-12 flex flex-col gap-3 md:col-span-5 md:col-start-8 md:items-end">
             <a
@@ -103,14 +106,14 @@ export function Hero() {
                 </svg>
               </span>
               <span className="underline-offset-4 group-hover:underline">
-                Schedule a call
+                {t.hero.primary}
               </span>
             </a>
             <a
               href="#services"
               className="font-mono text-mono-label uppercase opacity-70 underline-offset-4 transition hover:opacity-100 hover:underline"
             >
-              Explore services
+              {t.hero.secondary}
             </a>
           </div>
         </div>
@@ -119,10 +122,10 @@ export function Hero() {
       <div className="mx-auto mt-24 max-w-site px-6 md:mt-32 md:px-10">
         <div className="flex items-end justify-between border-t border-line pt-8">
           <div className="font-mono text-mono-label uppercase opacity-60">
-            Where creativity meets technology
+            {t.hero.tagline}
           </div>
           <div className="font-mono text-mono-label uppercase opacity-60">
-            Scroll <span className="ml-2 opacity-60">↓</span>
+            {t.hero.scroll} <span className="ml-2 opacity-60">↓</span>
           </div>
         </div>
       </div>

@@ -5,23 +5,37 @@ type Props = {
   className?: string;
   size?: number;
   priority?: boolean;
+  square?: boolean;
 };
 
 /**
- * Djitugo brand mark. The asset lives at /logo.png so it can be swapped
- * without touching code. Sized via Tailwind className (h-* w-*); the
- * width/height props below are just the intrinsic resolution hint.
+ * Djitugo brand mark. Cropped to a circle by default so the PNG's black
+ * square doesn't read as a hard tile. Pass square to keep the original
+ * rectangle (used by Open Graph and the favicon).
  */
-export function Logo({ className, size = 64, priority = false }: Props) {
+export function Logo({
+  className,
+  size = 64,
+  priority = false,
+  square = false
+}: Props) {
   return (
-    <Image
-      src="/logo.png"
-      alt="Djitugo"
-      width={size * 4}
-      height={size * 4}
-      priority={priority}
-      sizes="128px"
-      className={cn("inline-block h-auto w-auto", className)}
-    />
+    <span
+      className={cn(
+        "relative inline-block bg-ink-0",
+        square ? "" : "overflow-hidden rounded-full",
+        className
+      )}
+    >
+      <Image
+        src="/logo.png"
+        alt="Djitugo"
+        width={size * 4}
+        height={size * 4}
+        priority={priority}
+        sizes="128px"
+        className="size-full object-cover"
+      />
+    </span>
   );
 }

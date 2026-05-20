@@ -6,6 +6,7 @@ import { Loader } from "@/components/Loader";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { CookieConsent } from "@/components/CookieConsent";
+import { LangProvider } from "@/components/LangProvider";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -43,19 +44,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
       <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-paper focus:text-ink-0 focus:px-4 focus:py-2 focus:rounded"
-        >
-          Skip to content
-        </a>
-        <Loader />
-        <ScrollProgress />
-        <Nav />
-        <main id="main">{children}</main>
-        <FloatingCTA />
-        <CookieConsent />
-        <div className="grain" aria-hidden />
+        <LangProvider>
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-paper focus:text-ink-0 focus:px-4 focus:py-2 focus:rounded"
+          >
+            Skip to content
+          </a>
+          <Loader />
+          <ScrollProgress />
+          <Nav />
+          <main id="main">{children}</main>
+          <FloatingCTA />
+          <CookieConsent />
+          <div className="grain" aria-hidden />
+        </LangProvider>
       </body>
     </html>
   );

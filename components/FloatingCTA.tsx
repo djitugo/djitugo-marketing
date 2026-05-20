@@ -3,9 +3,11 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { SITE } from "@/lib/data";
+import { useT } from "@/components/LangProvider";
 
 export function FloatingCTA() {
   const [show, setShow] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 280);
@@ -28,13 +30,13 @@ export function FloatingCTA() {
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           className="group fixed bottom-5 right-5 z-[55] flex items-center gap-3 rounded-full bg-paper px-5 py-3.5 text-ink-0 shadow-[0_18px_60px_-10px_rgba(0,0,0,0.55)] md:bottom-8 md:right-8 md:px-6 md:py-4"
-          aria-label="Chat with Djitugo on WhatsApp"
+          aria-label={t.fab.chat}
         >
           <span className="relative flex size-2.5" aria-hidden>
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink-0 opacity-60" />
             <span className="relative inline-flex size-2.5 rounded-full bg-ink-0" />
           </span>
-          <span className="font-mono text-mono-label uppercase">Chat us</span>
+          <span className="font-mono text-mono-label uppercase">{t.fab.chat}</span>
           <svg
             width="14"
             height="14"

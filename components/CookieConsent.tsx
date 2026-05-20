@@ -3,18 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
+import { useT } from "@/components/LangProvider";
 
 const KEY = "djitugo_cookie_consent_v1";
 
 export function CookieConsent() {
   const [open, setOpen] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const stored = window.localStorage.getItem(KEY);
     if (stored) return;
-    const t = window.setTimeout(() => setOpen(true), 1800);
-    return () => window.clearTimeout(t);
+    const tmr = window.setTimeout(() => setOpen(true), 1800);
+    return () => window.clearTimeout(tmr);
   }, []);
 
   const decide = (choice: "accept" | "decline") => {
@@ -43,32 +45,29 @@ export function CookieConsent() {
             id="cookie-heading"
             className="font-mono text-mono-label uppercase opacity-70"
           >
-            Cookies, briefly
+            {t.cookie.heading}
           </div>
-          <p className="mt-3 text-body text-paper">
-            We use cookies to remember preferences and read aggregate traffic.
-            Nothing personal leaves this site.
-          </p>
+          <p className="mt-3 text-body text-paper">{t.cookie.body}</p>
           <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3">
             <button
               type="button"
               onClick={() => decide("accept")}
               className="rounded-full bg-paper px-4 py-2 font-mono text-mono-label uppercase text-ink-0 transition hover:bg-ink-5"
             >
-              Accept
+              {t.cookie.accept}
             </button>
             <button
               type="button"
               onClick={() => decide("decline")}
               className="font-mono text-mono-label uppercase opacity-70 underline-offset-4 transition hover:opacity-100 hover:underline"
             >
-              Decline
+              {t.cookie.decline}
             </button>
             <Link
               href="/privacy"
               className="ml-auto font-mono text-mono-label uppercase opacity-70 underline-offset-4 transition hover:opacity-100 hover:underline"
             >
-              Policy ↗
+              {t.cookie.policy} ↗
             </Link>
           </div>
         </motion.div>
