@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -109,13 +110,13 @@ export function Services() {
                   <p className="mt-6 max-w-md text-body-l text-ink-5">
                     {service.body}
                   </p>
-                  <a
-                    href="#contact"
+                  <Link
+                    href={`/services/${service.slug}`}
                     className="mt-10 inline-flex w-fit items-center gap-2 font-mono text-mono-label uppercase opacity-70 underline-offset-4 transition hover:opacity-100 hover:underline"
                   >
-                    Discuss this service
+                    Open the file
                     <span aria-hidden>↗</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NAV, SITE } from "@/lib/data";
 
 export function Footer() {
@@ -5,10 +6,13 @@ export function Footer() {
   return (
     <footer className="relative w-full border-t border-line pt-20 pb-10 md:pt-28">
       <div className="mx-auto max-w-site px-6 md:px-10">
-        <div className="text-display-l leading-[0.95] tracking-[-0.04em]">
+        <Link
+          href="/"
+          className="block text-display-l leading-[0.95] tracking-[-0.04em] transition hover:opacity-90"
+        >
           {SITE.name.toLowerCase()}
           <span className="text-focus">.</span>
-        </div>
+        </Link>
 
         <div className="mt-16 grid grid-cols-12 gap-6 border-t border-line pt-10">
           <div className="col-span-12 md:col-span-4">
@@ -18,6 +22,9 @@ export function Footer() {
             <address className="mt-3 not-italic text-body text-ink-5">
               {SITE.address}
             </address>
+            <p className="mt-3 font-mono text-mono-label uppercase opacity-60">
+              {SITE.hours}
+            </p>
           </div>
 
           <div className="col-span-6 md:col-span-3">
@@ -53,12 +60,12 @@ export function Footer() {
             <ul className="mt-3 space-y-2 text-body">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a
+                  <Link
                     href={n.href}
                     className="text-paper underline-offset-4 hover:underline"
                   >
                     {n.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,8 +111,20 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-3 border-t border-line pt-6 font-mono text-mono-label uppercase opacity-60 md:flex-row md:items-center md:justify-between">
-          <div>
-            &copy; {year} PT Djitu Solusi Digital. All rights reserved.
+          <div className="flex flex-wrap items-center gap-4">
+            <span>&copy; {year} {SITE.legalName}</span>
+            <Link
+              href="/privacy"
+              className="underline-offset-4 hover:underline"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/terms"
+              className="underline-offset-4 hover:underline"
+            >
+              Terms
+            </Link>
           </div>
           <div>Made on Bukit Sari Utara, Bali</div>
         </div>

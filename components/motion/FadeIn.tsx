@@ -6,6 +6,7 @@ import { cn } from "@/lib/cn";
 type Props = {
   children: React.ReactNode;
   className?: string;
+  id?: string;
   delay?: number;
   y?: number;
   once?: boolean;
@@ -15,6 +16,7 @@ type Props = {
 export function FadeIn({
   children,
   className,
+  id,
   delay = 0,
   y = 24,
   once = true,
@@ -24,6 +26,7 @@ export function FadeIn({
   const Component = motion[as];
   return (
     <Component
+      id={id}
       initial={reduce ? { opacity: 0 } : { opacity: 0, y }}
       whileInView={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once, amount: 0.3 }}

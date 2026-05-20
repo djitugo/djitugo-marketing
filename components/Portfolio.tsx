@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { useGsap, gsap, ScrollTrigger } from "@/components/motion/useGsap";
 import { SectionHeader } from "@/components/SectionHeader";
@@ -60,7 +61,8 @@ export function Portfolio() {
         {PORTFOLIO.map((item, i) => {
           const isEven = i % 2 === 0;
           return (
-            <article
+            <Link
+              href={`/work#${item.slug}`}
               key={item.client}
               className="group grid grid-cols-12 items-end gap-4 md:gap-6"
             >
@@ -101,7 +103,7 @@ export function Portfolio() {
                   ))}
                 </ul>
               </div>
-            </article>
+            </Link>
           );
         })}
       </div>
@@ -110,12 +112,12 @@ export function Portfolio() {
         <div className="font-mono text-mono-label uppercase opacity-60">
           More work on request
         </div>
-        <a
-          href="#contact"
+        <Link
+          href="/work"
           className="font-mono text-mono-label uppercase underline-offset-4 hover:underline"
         >
-          Request the deck ↗
-        </a>
+          See all work ↗
+        </Link>
       </div>
     </section>
   );

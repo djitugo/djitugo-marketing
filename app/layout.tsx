@@ -4,6 +4,8 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Loader } from "@/components/Loader";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { FloatingCTA } from "@/components/FloatingCTA";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -51,6 +53,8 @@ export default function RootLayout({
         <ScrollProgress />
         <Nav />
         <main id="main">{children}</main>
+        <FloatingCTA />
+        <CookieConsent />
         <div className="grain" aria-hidden />
       </body>
     </html>
