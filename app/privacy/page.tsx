@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import { SITE } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — Djitugo",
+export const metadata: Metadata = pageMetadata({
+  path: "/privacy",
+  title: "Privacy Policy",
   description:
     "How Djitugo collects, uses, and protects information across our marketing site and engagements."
-};
+});
 
 const UPDATED = "20 May 2026";
 

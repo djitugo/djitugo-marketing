@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import { SITE } from "@/lib/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Use — Djitugo",
+export const metadata: Metadata = pageMetadata({
+  path: "/terms",
+  title: "Terms of Use",
   description:
-    "Terms that govern your use of the Djitugo marketing site and our engagements."
-};
+    "Plain-language terms that govern your use of the Djitugo marketing site and our engagements."
+});
 
 const UPDATED = "20 May 2026";
 

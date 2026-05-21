@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
@@ -7,6 +7,16 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { CookieConsent } from "@/components/CookieConsent";
 import { LangProvider } from "@/components/LangProvider";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  KEYWORDS,
+  SITE_URL,
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema
+} from "@/lib/seo";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -23,17 +33,72 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Djitugo — Where Creativity Meets Technology",
-  description:
-    "Djitugo is a Bali-based digital marketing agency. We build automation-led growth systems for ambitious businesses across hospitality, retail, healthcare, and beyond.",
-  openGraph: {
-    title: "Djitugo — Where Creativity Meets Technology",
-    description:
-      "Bali-based digital marketing agency. Automation-led growth for ambitious businesses.",
-    type: "website",
-    locale: "en_US"
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: DEFAULT_TITLE,
+    template: "%s — Djitugo"
   },
-  metadataBase: new URL("https://djitugomarketing.com")
+  description: DEFAULT_DESCRIPTION,
+  keywords: KEYWORDS,
+  applicationName: "Djitugo",
+  generator: "Next.js",
+  authors: [{ name: "Djitugo", url: SITE_URL }],
+  creator: "Djitugo",
+  publisher: "PT Djitu Solusi Digital",
+  category: "Marketing",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+      "id-ID": "/",
+      "x-default": "/"
+    }
+  },
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: "Djitugo",
+    locale: "en_US",
+    alternateLocale: "id_ID",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    creator: "@djitugo"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  },
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "128x128" }],
+    apple: [{ url: "/icon.png", sizes: "128x128", type: "image/png" }]
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true
+  }
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1a1716" },
+    { media: "(prefers-color-scheme: light)", color: "#1a1716" }
+  ],
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark"
 };
 
 export default function RootLayout({
@@ -43,6 +108,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${jetbrains.variable}`}>
+      <head>
+        <JsonLd
+          data={[organizationSchema(), localBusinessSchema(), websiteSchema()]}
+        />
+      </head>
       <body>
         <LangProvider>
           <a
