@@ -5,12 +5,12 @@ import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/work",
-  title: "Work",
+  title: "Work — Djitugo Marketing Case Studies Bali",
   description:
-    "Selected work from Djitugo: hospitality, healthcare, mobility, beauty, and recruitment-tech case studies. Brands that grew on our watch.",
-  ogTitle: "Djitugo Work — Brands that grew on our watch",
+    "Selected case studies from Djitugo across hospitality, healthcare, mobility, beauty, and recruitment-tech. Brands that grew on our watch in Bali and across Indonesia.",
+  ogTitle: "Djitugo Work — Bali Marketing Case Studies",
   ogDescription:
-    "A short selection of recent engagements. The full deck lives on the studio drive."
+    "Hospitality, healthcare, mobility, beauty, recruitment. Selected case studies from our Bali studio."
 });
 
 export default function WorkPage() {

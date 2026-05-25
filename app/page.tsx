@@ -14,9 +14,9 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   path: "/",
   title: undefined,
-  ogTitle: "Djitugo — Where Creativity Meets Technology",
+  ogTitle: "Djitugo — Digital Marketing Agency in Bali, Indonesia",
   ogDescription:
-    "Bali-based digital marketing studio. Automation-led growth for ambitious brands across hospitality, retail, healthcare, and beyond."
+    "Strategy, social media, ads, web, branding, and photography for ambitious brands across Indonesia. Studio in Denpasar since 2020."
 });
 
 export default function Home() {

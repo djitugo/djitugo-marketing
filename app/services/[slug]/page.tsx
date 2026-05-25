@@ -18,12 +18,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const s = SERVICES.find((x) => x.slug === slug);
-  if (!s) return pageMetadata({ path: `/services/${slug}`, title: "Service" });
+  if (!s) return pageMetadata({ path: `/services/${slug}`, title: "Service · Djitugo" });
   return pageMetadata({
     path: `/services/${s.slug}`,
-    title: s.en.short,
+    title: `${s.en.short} Bali — Djitugo Digital Marketing Agency`,
     description: `${s.en.tagline} ${s.en.body}`,
-    ogTitle: `${s.en.short} — Djitugo`,
+    ogTitle: `${s.en.short} in Bali — Djitugo`,
     ogDescription: s.en.tagline
   });
 }

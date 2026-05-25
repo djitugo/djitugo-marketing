@@ -5,12 +5,12 @@ import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/about",
-  title: "About",
+  title: "About Djitugo — Digital Marketing Studio in Bali Since 2020",
   description:
-    "Djitugo is a digital marketing studio in Denpasar, Bali, founded in 2020 by Gustu Adi and Komang Joni. 700+ clients across hospitality, healthcare, mobility, and beyond.",
-  ogTitle: "About Djitugo — A studio in Bali, Indonesia",
+    "Founded 2020 in Denpasar, Bali by Gustu Adi and Komang Joni. Eighteen-person studio across strategy, creative, engineering, photo, and ops. 700+ clients across hospitality, healthcare, mobility, beauty, and more.",
+  ogTitle: "About Djitugo — Bali Digital Marketing Studio Since 2020",
   ogDescription:
-    "Founded 2020. 18 in-house creatives, engineers, and strategists. One accountable team, six disciplines."
+    "Eighteen in-house creatives, engineers, and strategists. One accountable team across six disciplines."
 });
 
 export default function AboutPage() {

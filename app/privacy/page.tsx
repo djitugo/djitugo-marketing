@@ -6,9 +6,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/privacy",
-  title: "Privacy Policy",
+  title: "Privacy Policy — Djitugo",
   description:
-    "How Djitugo collects, uses, and protects information across our marketing site and engagements."
+    "How Djitugo (PT Djitu Solusi Digital) collects, uses, and protects information across djitugomarketing.com and our engagements."
 });
 
 const UPDATED = "20 May 2026";

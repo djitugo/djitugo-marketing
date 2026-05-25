@@ -5,12 +5,12 @@ import { breadcrumbSchema, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/services",
-  title: "Services",
+  title: "Services — Djitugo Digital Marketing Agency Bali",
   description:
-    "Six disciplines under one accountable team: digital marketing automation, social media, performance ads, web development, branding and design, and commercial photography.",
-  ogTitle: "Djitugo Services — Six disciplines, one accountable team",
+    "Six disciplines under one accountable team: digital marketing automation, social media, performance ads, web development, branding, and commercial photography. Run from our Bali studio.",
+  ogTitle: "Djitugo Services — Marketing, Ads, Web, Branding in Bali",
   ogDescription:
-    "From the first strategy session to the monthly readout, the same studio runs everything."
+    "Six disciplines, one accountable team. From strategy session to monthly readout, same studio runs everything."
 });
 
 export default function ServicesPage() {

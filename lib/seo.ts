@@ -3,9 +3,11 @@ import { SITE } from "./data";
 
 export const SITE_URL = "https://djitugomarketing.com";
 export const SITE_NAME = SITE.name;
-export const DEFAULT_TITLE = `${SITE.name} — Where Creativity Meets Technology`;
+export const DEFAULT_TITLE =
+  "Djitugo — Digital Marketing Agency in Bali, Indonesia";
+export const TAGLINE = "Where Creativity Meets Technology";
 export const DEFAULT_DESCRIPTION =
-  "Djitugo is a Bali-based digital marketing studio. We build automation-led growth systems for ambitious brands across hospitality, retail, healthcare, and beyond. Strategy, creative, and engineering, under one roof.";
+  "Djitugo is a Bali-based digital marketing agency. Strategy, social media, performance ads, web development, branding, and commercial photography for ambitious brands across Indonesia. Studio in Denpasar since 2020.";
 
 export const KEYWORDS = [
   "Djitugo",
@@ -48,7 +50,7 @@ export function pageMetadata({
   const finalTitle = title ?? DEFAULT_TITLE;
   const finalDescription = description ?? DEFAULT_DESCRIPTION;
   return {
-    title,
+    ...(title ? { title: { absolute: title } } : {}),
     description: finalDescription,
     alternates: {
       canonical: url,

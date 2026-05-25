@@ -6,9 +6,9 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   path: "/terms",
-  title: "Terms of Use",
+  title: "Terms of Use — Djitugo",
   description:
-    "Plain-language terms that govern your use of the Djitugo marketing site and our engagements."
+    "Plain-language terms that govern your use of djitugomarketing.com and any Djitugo engagement."
 });
 
 const UPDATED = "20 May 2026";
